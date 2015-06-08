@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608195445) do
+ActiveRecord::Schema.define(version: 20150608202205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gratefuls", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "gratefuls", ["user_id"], name: "index_gratefuls_on_user_id", using: :btree
 
   create_table "gratitudes", force: :cascade do |t|
     t.integer  "total_count"
@@ -23,7 +32,28 @@ ActiveRecord::Schema.define(version: 20150608195445) do
     t.integer  "impact_count"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "user_id"
   end
+
+  add_index "gratitudes", ["user_id"], name: "index_gratitudes_on_user_id", using: :btree
+
+  create_table "impacts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "impacts", ["user_id"], name: "index_impacts_on_user_id", using: :btree
+
+  create_table "successes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "successes", ["user_id"], name: "index_successes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
