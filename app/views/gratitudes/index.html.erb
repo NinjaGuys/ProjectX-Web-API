@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gratitudes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total count</th>
+      <th>Success count</th>
+      <th>Grateful count</th>
+      <th>Impact count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gratitudes.each do |gratitude| %>
+      <tr>
+        <td><%= gratitude.total_count %></td>
+        <td><%= gratitude.success_count %></td>
+        <td><%= gratitude.grateful_count %></td>
+        <td><%= gratitude.impact_count %></td>
+        <td><%= link_to 'Show', gratitude %></td>
+        <td><%= link_to 'Edit', edit_gratitude_path(gratitude) %></td>
+        <td><%= link_to 'Destroy', gratitude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gratitude', new_gratitude_path %>

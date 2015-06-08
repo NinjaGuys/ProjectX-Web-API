@@ -1,0 +1,33 @@
+<%= form_for(@gratitude) do |f| %>
+  <% if @gratitude.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gratitude.errors.count, "error") %> prohibited this gratitude from being saved:</h2>
+
+      <ul>
+      <% @gratitude.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :total_count %><br>
+    <%= f.number_field :total_count %>
+  </div>
+  <div class="field">
+    <%= f.label :success_count %><br>
+    <%= f.number_field :success_count %>
+  </div>
+  <div class="field">
+    <%= f.label :grateful_count %><br>
+    <%= f.number_field :grateful_count %>
+  </div>
+  <div class="field">
+    <%= f.label :impact_count %><br>
+    <%= f.number_field :impact_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

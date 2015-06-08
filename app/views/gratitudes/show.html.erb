@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total count:</strong>
+  <%= @gratitude.total_count %>
+</p>
+
+<p>
+  <strong>Success count:</strong>
+  <%= @gratitude.success_count %>
+</p>
+
+<p>
+  <strong>Grateful count:</strong>
+  <%= @gratitude.grateful_count %>
+</p>
+
+<p>
+  <strong>Impact count:</strong>
+  <%= @gratitude.impact_count %>
+</p>
+
+<%= link_to 'Edit', edit_gratitude_path(@gratitude) %> |
+<%= link_to 'Back', gratitudes_path %>
